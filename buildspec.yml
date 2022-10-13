@@ -1,0 +1,22 @@
+version: 0.2
+env:
+  variables:
+    REACT_APP_API_BASE_URL: $REACT_APP_API_BASE_URL
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing project dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Initiating build...
+      - npm run build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - "**/*"
+  base-directory: build
